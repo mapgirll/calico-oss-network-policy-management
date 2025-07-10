@@ -1,0 +1,23 @@
+apiVersion: projectcalico.org/v3
+kind: Tier
+metadata:
+  name: security
+spec:
+  order: 2000
+  defaultAction: Pass
+---
+apiVersion: projectcalico.org/v3
+kind: Tier
+metadata:
+  name: platform
+spec:
+  order: 3000
+  defaultAction: Pass
+---
+apiVersion: projectcalico.org/v3
+kind: Tier
+metadata:
+  name: application-catfacts
+spec:
+  order: 7000
+  defaultAction: Pass

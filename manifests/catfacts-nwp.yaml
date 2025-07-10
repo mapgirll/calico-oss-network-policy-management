@@ -1,0 +1,102 @@
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: application-catfacts.facts
+  namespace: catfacts
+spec:
+  tier: application-catfacts
+  order: 140
+  selector: app == 'facts'
+  types:
+    - Ingress
+    - Egress
+  ingress:
+    - action: Deny
+      protocol: TCP
+      source: {}
+      destination:
+        ports:
+          - 80
+  egress:
+    - action: Allow
+      protocol: TCP
+      destination:
+        selector: app == 'db'
+        ports:
+          - 3306
+---
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: application-catfacts.worker
+  namespace: catfacts
+spec:
+  tier: application-catfacts
+  order: 120
+  selector: app == 'worker'
+  types:
+    - Egress
+  egress:
+    - action: Allow
+      protocol: TCP
+      destination:
+        selector: app == 'facts'
+        ports:
+          - 80
+    - action: Allow
+      protocol: TCP
+      destination:
+        selector: all()
+        ports:
+          - 443
+    - action: Allow
+      protocol: TCP
+      destination:
+        selector: app == 'db'
+        ports:
+          - 3306
+---
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: application-catfacts.db
+  namespace: catfacts
+spec:
+  tier: application-catfacts
+  order: 100
+  selector: app == 'db'
+  types:
+    - Ingress
+  ingress:
+    - action: Allow
+      protocol: TCP
+      source:
+        selector: app == "worker" || app == "facts"
+      destination:
+        ports:
+          - "3306"
+---
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: application-catfacts.pass-to-next-tier
+spec:
+  tier: application-catfacts
+  order: 2000
+  selector: all()
+  namespaceSelector: ""
+  serviceAccountSelector: ""
+  ingress:
+    - action: Pass
+      source: {}
+      destination: {}
+  egress:
+    - action: Pass
+      source: {}
+      destination: {}
+  doNotTrack: false
+  applyOnForward: false
+  preDNAT: false
+  types:
+    - Ingress
+    - Egress
