@@ -36,11 +36,15 @@ The estimated time to complete this workshop is 60-90 minutes.
 
 If you need to set up a Calico cluster, please refer to the [Calico quickstart guide](https://docs.tigera.io/calico/latest/getting-started/kubernetes/quickstart).
 
-[Module 1 - Getting Started with Whisker](../modules/module-1-getting-started-with-whisker.md) 
-[Module 2 - Introducing Tiers](../modules/module-2-introducingtiers.md) 
-[Module 3 - Writing Network Policy](../modules/module-3-writing-network-policy.md)  
-[Module 4 - Network Policy Best Practices](../modules/module-4-network-policy-best-practices.md) 
-[Module 5 - Calico Cloud Free Tier](../modules/module-5-calico-cloud-free-tier.md) 
+[Module 1 - Getting Started with Whisker](modules/module-1-getting-started-with-whisker.md) 
+
+[Module 2 - Introducing Tiers](modules/module-2-introducingtiers.md) 
+
+[Module 3 - Writing Network Policy](modules/module-3-writing-network-policy.md)  
+
+[Module 4 - Network Policy Best Practices](modules/module-4-network-policy-best-practices.md) 
+
+[Module 5 - Calico Cloud Free Tier](modules/module-5-calico-cloud-free-tier.md) 
 
 ---
 

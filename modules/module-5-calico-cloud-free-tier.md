@@ -6,7 +6,7 @@ It takes just a few seconds to connect your cluster to Calico Cloud.
 
 ![connect a cluster](<../images/Connect a Cluster Video - Calico Cloud Free Tier.gif>)
 
-<iframe src="https://demo.arcade.software/eWC0DGSIaEIyPMPyNasN?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true"></iframe>
+[Take a tour of Calico Cloud Free Tier](https://demo.arcade.software/eWC0DGSIaEIyPMPyNasN?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true)
 
 Sign up for Calico Cloud free Tier and connect your cluster following the instructions.
 

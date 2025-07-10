@@ -6,33 +6,33 @@ Calico allows hierarchical grouping of policies into tiers. Policy tiers allow e
 
 1. Check which tiers already exist in the cluster:
 
-   ```bash
-   kubectl get tiers
-   ```
+```bash
+kubectl get tiers
+```
 2. Describe two of the tiers to:
 
-   ```bash
-   kubectl describe tier default
-   ```
+```bash
+kubectl describe tier default
+```
 
-   ```bash
-   kubectl describe tier default
-   ```
+```bash
+kubectl describe tier default
+```
 
 3. Notice the differences in the spec of each of the tiers. The `default` tier has a default action of `Deny`, and an order of `1,000,000`.
 
 ```YAML,nocopy
 Spec:
-  Default Action:  Deny
-  Order:           1000000
+Default Action:  Deny
+Order:           1000000
 ```
 
 The `baselineadminnetworkpolicy` tier has a default action of `Pass`, and an order of `10,000,000`.
 
 ```YAML,nocopy
 Spec:
-  Default Action:  Deny
-  Order:           1000000
+Default Action:  Deny
+Order:           1000000
 ```
 
 The order number of the tiers shows that policies in the `default` tier will get evaluated before the `baselineadminnetworkpolicy`, *however* the default action of the `default` tier is `Deny`, so if any traffic is evaluated by all policies in that tier and doesn't match, and it gets to the bottom of the tier, it will be denied. Any traffic that makes it to the bottom of the `baselineadminnetworkpolicy` tier will get passed onto the next tier for evaluation. 
@@ -70,7 +70,7 @@ To control and authorize access to Calico tiers, policies, and Kubernetes networ
 
 * Review your policy processing whenever you add/reorder tiers
 
-  _For example, you may need to update Pass action rules to policies before or after the new tier. Intervening tiers may require changes to policies before and after, depending on the endpoints._
+_For example, you may need to update Pass action rules to policies before or after the new tier. Intervening tiers may require changes to policies before and after, depending on the endpoints._
 
 [Read more here.](https://docs.tigera.io/calico/latest/network-policy/policy-tiers/tiered-policy)
 
