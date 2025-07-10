@@ -10,6 +10,8 @@ Calico enables fine-grained, secure workload access controls between your micros
 
 You will come away from this workshop with an understanding of how others in your industry are securing and observing cloud-native applications with Calico, along with best practices that you can implement in your organization.
 
+Take an interactive tour of [Calico Whisker](https://app.arcade.software/share/eaXRLqtdnjomS6tSh3Pg) before you begin!
+
 ### Time Requirements
 
 The estimated time to complete this workshop is 60-90 minutes.
