@@ -35,7 +35,7 @@ Default Action:  Pass
 Order:           10000000
 ```
 
-The order number of the tiers shows that policies in the `default` tier will get evaluated before the `baselineadminnetworkpolicy`, *however* the default action of the `default` tier is `Deny`, so if any traffic is evaluated by all policies in that tier and doesn't match, and it gets to the bottom of the tier, it will be denied. Any traffic that makes it to the bottom of the `baselineadminnetworkpolicy` tier will get passed onto the next tier for evaluation. 
+The order number of the tiers shows that the `default` tier will get evaluated before the `baselineadminnetworkpolicy` (because it's number is lower, so has higher precedence) *however* the default action of the `default` tier is `Deny`, so if any traffic is evaluated by all policies in that tier and doesn't match, it will be denied. Any traffic that makes it to the bottom of the `baselineadminnetworkpolicy` tier will get passed onto the next tier for evaluation (if there is one). 
 
 >AdminNetworkPolicies and BaselineAdminNetworkPolicies are based on two APIs introduced by the Kubernetes network policy API. The AdminNetworkPolicy helps administrators set strict security rules for the cluster, i.e. a developer cannot override these rules. The BaselineAdminNetworkPolicy allows administrators to set baseline security rules that can be overridden by developer NetworkPolicies if needed. 
 
