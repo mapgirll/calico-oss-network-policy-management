@@ -31,8 +31,8 @@ The `baselineadminnetworkpolicy` tier has a default action of `Pass`, and an ord
 
 ```YAML,nocopy
 Spec:
-Default Action:  Deny
-Order:           1000000
+Default Action:  Pass
+Order:           10000000
 ```
 
 The order number of the tiers shows that policies in the `default` tier will get evaluated before the `baselineadminnetworkpolicy`, *however* the default action of the `default` tier is `Deny`, so if any traffic is evaluated by all policies in that tier and doesn't match, and it gets to the bottom of the tier, it will be denied. Any traffic that makes it to the bottom of the `baselineadminnetworkpolicy` tier will get passed onto the next tier for evaluation. 
