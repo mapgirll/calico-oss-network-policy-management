@@ -45,6 +45,7 @@ spec:
         ports:
           - "3306"
 ``` 
+>Fro more information on all of the selectors that Calico supports, including `||`, check out our [documentation on selectors]([https://docs.tigera.io/calico/latest/reference/resources/networkpolicy#selector-performance-in-entityrules](https://docs.tigera.io/calico/latest/reference/resources/networkpolicy#selectors)).
 
 ![Catfacts flow log](../images/catfacts-dest-db.png)
 
